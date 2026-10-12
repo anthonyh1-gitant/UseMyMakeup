@@ -1,0 +1,15 @@
+{
+  "id": "/",
+  "name": "Use My Makeup",
+  "short_name": "My Makeup",
+  "description": "Fresh looks. Using what you already own.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#faf8f5",
+  "theme_color": "#6b4159",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

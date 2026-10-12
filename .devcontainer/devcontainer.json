@@ -1,0 +1,20 @@
+{
+  "name": "Use My Makeup",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "24.19.0"
+    }
+  },
+  "postCreateCommand": "npm ci --no-fund --no-audit",
+  "postStartCommand": "npm run dev -- --host 0.0.0.0 --port 5173 --strictPort > /tmp/use-my-makeup-dev.log 2>&1 &",
+  "forwardPorts": [
+    5173
+  ],
+  "portsAttributes": {
+    "5173": {
+      "label": "Use My Makeup",
+      "onAutoForward": "openBrowser"
+    }
+  }
+}
