@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Server-only credentials and generated runtime images
+.env
+.env.*
+!.env.example
+.cache/

@@ -1,5 +1,5 @@
 /* Static production app shell only; no photos, notes or remote API responses. */
-const CACHE = 'use-my-makeup-shell-v1'
+const CACHE = 'use-my-makeup-shell-v2'
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const response = await fetch('/', { cache: 'reload' })
@@ -7,7 +7,7 @@ self.addEventListener('install', event => {
     const html = await response.text()
     const assets = [...html.matchAll(/(?:src|href)="(\/assets\/[^"\s]+)"/g)].map(match => match[1])
     const cache = await caches.open(CACHE)
-    await cache.addAll(['/', '/index.html', '/favicon.svg', '/manifest.webmanifest', '/icon-192.png', '/icon-512.png', ...assets])
+    await cache.addAll(['/', '/index.html', '/favicon.svg', '/manifest.webmanifest', '/icon-192.png', '/icon-512.png', '/looks/editorial-models.png', '/looks/minimal-models.png', ...assets])
   })())
 })
 self.addEventListener('activate', event => {
@@ -29,7 +29,7 @@ self.addEventListener('fetch', event => {
         return response
       } catch { return await caches.match('/') || Response.error() }
     })())
-  } else if (url.pathname.startsWith('/assets/') || ['/favicon.svg', '/manifest.webmanifest', '/icon-192.png', '/icon-512.png'].includes(url.pathname)) {
+  } else if (url.pathname.startsWith('/assets/') || url.pathname.startsWith('/looks/') || ['/favicon.svg', '/manifest.webmanifest', '/icon-192.png', '/icon-512.png'].includes(url.pathname)) {
     event.respondWith((async () => {
       const cached = await caches.match(request)
       if (cached) return cached

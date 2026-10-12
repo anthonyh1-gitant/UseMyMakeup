@@ -26,7 +26,7 @@ export interface Step {
   id: string; productId: string; category: Category; productName: string; instruction: string; tip: string; help: string; seconds: number;
 }
 export interface Look {
-  id: string; templateId: string; name: string; description: string; createdAt: string;
+  id: string; templateId: string; referenceId?: string; imageUrl?: string; name: string; description: string; createdAt: string;
   preferences: Preferences; steps: Step[]; productIds: string[]; notes: string[];
   sample: boolean; tried: boolean; ease: number; usefulness: number; privateNote: string;
   feedback: string; helped: string; pricing: string;

@@ -1,34 +1,34 @@
-# Try Use My Makeup
+# Try the visual-first Use My Makeup
 
-The beta is free. No account, selfie, payment or subscription is needed.
+No account, selfie, brand name or shade entry is needed. The beta is free.
 
-1. Select **Create my first look**. Add a blush, mascara or lip product you own.
-   Category is enough; brand and shade are optional. Add another favourite if you
-   like. Alternatively, use the **sample makeup bag**; everything in it is demo
-   content rather than confirmed ownership.
-2. In **Create Look**, choose an occasion, 5/10/20 minutes and a preferred style.
-   Uncheck anything you do not want to use. Select **Create my look**.
-3. Read the recipe or select **Follow along**. Expand the help, try Next, Back
-   and Skip, then refresh: your progress should resume on the same device.
-4. **Save this look**, rename it and mark **I tried this**. Rate its ease and
-   usefulness or write a private note. Feedback and pricing-interest answers
-   remain local. No information is submitted to a founder or analytics server.
-5. Find the recipe in **Saved**. Remove a used product in **My Bag**, then open
-   the recipe again: it should flag the missing item rather than replace it.
-6. In **Settings**, try light, dark and system appearance, replay the walkthrough,
-   or delete all app data after the confirmation. Deletion is permanent.
+1. **Pick your occasion**: Everyday, Work, Dinner or Celebration. A model reference
+   appears immediately. Select **Show another** to change the mood. Time defaults
+   to five minutes; expand **More or less time?** only if you want to adjust it.
+2. **Try this look**: tap the categories you actually own, such as blush, mascara
+   and a lip product. One is enough. Select **Use my products**. Your choices are
+   remembered on this device, so next time you can reuse them without re-entry.
+3. **See your version**: the recipe uses only your confirmed products, with up to
+   five steps. When you have fewer products, the reference switches to a simpler
+   image if that combination exists in the library. An unsupported combination
+   shows an honest image-unavailable state, with a working recipe.
+4. **Follow along**: use Next, Back or Skip, and expand the help if useful. Refresh
+   to check that the same step resumes. You can return to the full recipe anytime.
+5. **Save and repeat**: rename a favourite, mark it tried, rate it or keep a private
+   note. **My Bag** lets you add optional details, photos or availability later.
+6. **Settings**: try light, dark and system appearance, replay the tutorial, export
+   local journey events, or confirm deletion of all device-local app data.
 
-Photos are optional. Photo recognition is not connected; enter details yourself.
-To retain a photo, explicitly check **Save this photo on this device**. Otherwise
-it is discarded when the form closes.
+All model pictures are **AI-generated style inspiration**. They do not predict
+how you will look or reproduce your product shades. The cached reference library
+loads without an API key. Tutorials are unreviewed beta content; follow product
+labels and skip anything you are unsure about. Makeup-artist review is needed
+before a wider launch.
 
-Looks use curated templates, with no AI API dependency. The app does not predict
-what you will look like. Shade descriptions are user-entered, not colour matches.
-Tutorial content is unreviewed beta guidance: follow each product's label and
-skip anything you are unsure about. Makeup-artist review is required before a
-wider launch.
+Live generation is optional. If the owner configures a server-side image API key,
+**Generate a fresh reference** sends only occasion, style and recipe categories
+to OpenAI after you click it. No photos, product names or notes are sent. Usage
+is capped; if generation fails, your recipe remains usable.
 
-Your collection, saved looks and notes are browser-local. They do not sync to
-another device. Clearing browser storage may remove them. In production, the
-app can run offline after its app shell has been cached; installation depends
-on your browser and HTTPS hosting.
+Data stays in this browser. There is no account syncing, aggregate analytics or
+remote private-data backup. Feedback is saved locally, not sent to a founder.

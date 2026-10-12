@@ -28,7 +28,7 @@ const instructions: Record<Category, { instruction: string; tip: string; help: s
 }
 
 /** Deterministic curated fallback. No AI service, invented products or cross-area substitutions. */
-export function generateLook(products: Product[], preferences: Preferences, templateId?: string): Look {
+export function generateLook(products: Product[], preferences: Preferences, templateId?: string, options: { priorities?: Category[]; maxSteps?: number } = {}): Look {
   const selected = products.filter(p => p.available && preferences.selectedIds.includes(p.id) && p.category !== 'tools' && !(preferences.noFoundation && p.category === 'base'))
   if (!selected.length) throw new Error('Choose at least one available makeup product. Brushes and tools alone cannot create a look.')
   const sorted = [...templates].sort((a, b) => score(b) - score(a))
@@ -36,7 +36,7 @@ export function generateLook(products: Product[], preferences: Preferences, temp
     return (template.style === preferences.style ? 20 : 0) + (template.occasions.includes(preferences.occasion) ? 10 : 0) + selected.filter(p => template.order.includes(p.category)).length
   }
   const template = (templateId ? templates.find(t => t.id === templateId) : undefined) ?? sorted[0]
-  const order = preferences.focusEyes ? ['eyeshadow', 'eyeliner', 'mascara', ...template.order] as Category[] : [...template.order]
+  const order = options.priorities ? [...options.priorities] : preferences.focusEyes ? ['eyeshadow', 'eyeliner', 'mascara', ...template.order] as Category[] : [...template.order]
   for (const item of selected) if (!order.includes(item.category)) order.push(item.category)
   const uniqueOrder = [...new Set(order)]
   const notes: string[] = []
@@ -48,6 +48,7 @@ export function generateLook(products: Product[], preferences: Preferences, temp
   const budget = preferences.time * 60
   const multiplier = preferences.skill === 'beginner' ? 1.2 : 1
   for (const category of uniqueOrder) {
+    if (steps.length >= (options.maxSteps ?? Infinity)) break
     const product = selected.find(p => p.category === category)
     if (!product) continue
     const instruction = instructions[category]
